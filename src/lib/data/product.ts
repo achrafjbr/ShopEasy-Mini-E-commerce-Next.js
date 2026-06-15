@@ -12,7 +12,7 @@ export const products: Product[] = [
     image:
       "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&h=800&fit=crop&auto=format",
     imageAlt: "iPhone 16 Pro en titane naturel",
-    width: 800,
+    width: 400,
     height: 800,
   },
   {
