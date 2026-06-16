@@ -19,19 +19,25 @@ export default function ProductCard({
   width,
 }: Product) {
   return (
-    <div className="shadow rounded-2xl w-fit bg-black/5 outline outline-orange-950 ">
-      <Image
-        objectFit="cover"
-        className="rounded-t-2xl"
-        alt={imageAlt}
-        src={image}
-        width={width}
-        height={height}
-        loading="eager"
-      />
-      <div className="p-3 h-40 flex flex-col justify-between">
+    <div className=" w-full min-w-0 shadow rounded-2xl bg-black/5 outline outline-gray-800">
+      {" "}
+      <div className="relative rounded-t-md w-full aspect-square overflow-hidden ">
+        <Image
+          src={image}
+          alt={imageAlt}
+          fill
+          className="object-cover transition-transform duration-300 hover:scale-110"
+        />
+      </div>
+      <div className="p-4 h-40 flex flex-col justify-between">
         <div className="">
-          <p>{category}</p>
+          <p
+            className=" text-gray-400"
+            style={fontStyle({ font: Font.SANS_SERIF, fontSize: "14px" })}
+          >
+            {category}
+          </p>
+
           <Divider padding="pt-2" />
           <p
             className="font-semibold md:text-base lg:text-[1.2rem]"
@@ -40,9 +46,21 @@ export default function ProductCard({
             {name}
           </p>
         </div>
+
         <div className="flex justify-between items-center">
-          <p className="text-[1.3rem] text-[#c9a96e]">{`${price} DH`}</p>
-          <SeeDetailsButton />
+          <p className="text-[1.2rem] text-[#c9a96e]">{`${price} DH`}</p>
+          <SeeDetailsButton
+            category={category}
+            description={description}
+            id={id}
+            image={image}
+            imageAlt={imageAlt}
+            name={name}
+            price={price}
+            slug={slug}
+            width={0}
+            height={0}
+          />
         </div>
       </div>
     </div>

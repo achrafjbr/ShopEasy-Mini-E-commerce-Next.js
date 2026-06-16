@@ -10,3 +10,13 @@ export type Product = {
   width: number;
   height: number;
 };
+
+export type ProductState = {
+  isAdded: boolean;
+};
+
+export type ProductContextType = {
+  productCartCount: number;
+  addProduct: (product: Product) => void;
+  deleteProduct: (id: number) => void;
+};

@@ -12,7 +12,7 @@ const s = Agbalumo({
 
 export default function Home() {
   return (
-    <div className={"p-8"}>
+    <div className={"p-8  "}>
       <div className="w-[50%] ">
         <p className="pt-5 font-serif lg:text-7xl md:text-2xl">Tech Premium,</p>
         <p
@@ -34,7 +34,13 @@ export default function Home() {
 
       <p className="text-[1.2rem]"> 7 product </p>
       <Divider padding="pt-8" />
-      <ProductCard {...products[0]} />
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {" "}
+        {products.map((product) => (
+          <ProductCard key={product.id} {...product} />
+        ))}
+      </div>
     </div>
   );
 }

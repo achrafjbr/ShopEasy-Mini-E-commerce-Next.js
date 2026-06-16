@@ -26,7 +26,7 @@ export const products: Product[] = [
     image:
       "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&h=800&fit=crop&auto=format",
     imageAlt: "MacBook Air M3 ouvert sur un bureau",
-    width: 800,
+    width: 400,
     height: 800,
   },
   {
@@ -40,7 +40,7 @@ export const products: Product[] = [
     image:
       "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&h=800&fit=crop&auto=format",
     imageAlt: "Sony WH-1000XM5 casque sans fil premium",
-    width: 800,
+    width: 400,
     height: 800,
   },
   {
@@ -54,7 +54,7 @@ export const products: Product[] = [
     image:
       "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=800&h=800&fit=crop&auto=format",
     imageAlt: "AirPods Pro 2 avec étui de charge MagSafe",
-    width: 800,
+    width: 400,
     height: 800,
   },
   {
@@ -68,7 +68,7 @@ export const products: Product[] = [
     image:
       "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&h=800&fit=crop&auto=format",
     imageAlt: "Apple Watch Ultra 2 en titane avec bracelet orange",
-    width: 800,
+    width: 400,
     height: 800,
   },
   {
@@ -82,10 +82,12 @@ export const products: Product[] = [
     image:
       "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=800&h=800&fit=crop&auto=format",
     imageAlt: "iPad Pro M4 avec Apple Pencil",
-    width: 800,
+    width: 400,
     height: 800,
   },
 ];
+
+export const shoppingCart: Product[] = [];
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);
