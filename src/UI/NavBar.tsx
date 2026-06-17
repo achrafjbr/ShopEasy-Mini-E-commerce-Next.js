@@ -9,7 +9,6 @@ import { ProductContext } from "../states/context";
 
 export default function NavBar() {
   const productConsumer = useContext(ProductContext);
-
   return (
     <ProductsContextProvider>
       <div className="flex items-center justify-between p-8 ">
@@ -38,18 +37,16 @@ export default function NavBar() {
 
           {/* panier */}
           <Link href="/cart">
-            <div className="flex gap-x-2.5 justify-center items-center">
+            <div className="flex gap-x-1 justify-center items-center">
               <ShoppingCart size={16} />
-              <div
-                className="relative"
-                style={fontStyle({ font: Font.SANS_SERIF, fontSize: "13px" })}
-              >
+              <div className="relative">
                 PANIER
                 <div
                   className="
+                  bg-[#c9a96e] text-black
                 absolute -right-2.5 -top-2.5
                 text-[0.6rem] rounded-full size-4 flex
-                justify-center items-center bg-blue-700"
+                justify-center items-center text-center font-bold"
                 >
                   {productConsumer?.productCartCount == null
                     ? 0

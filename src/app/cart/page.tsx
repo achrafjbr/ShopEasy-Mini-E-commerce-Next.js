@@ -1,3 +1,6 @@
+import { shoppingCart } from "@/src/lib/data/product";
+import EmtyCart from "@/src/UI/cartUI/EmtyCart";
+import ProductsCart from "@/src/UI/cartUI/ProductsCart";
 import { Agbalumo } from "next/font/google";
 
 const s = Agbalumo({
@@ -6,5 +9,5 @@ const s = Agbalumo({
 });
 
 export default function Card() {
-  return <div>Card</div>;
+  return <ProductsCart />;
 }

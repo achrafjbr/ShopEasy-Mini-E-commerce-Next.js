@@ -1,9 +1,7 @@
 import { Agbalumo } from "next/font/google";
 import { Font } from "../lib/types/font";
 import { fontStyle } from "../font/font";
-import { products } from "../lib/data/product";
-import ProductCard from "../UI/productUI/ProductCard";
-import Divider from "../UI/Divider";
+import ProductsGrid from "../UI/productUI/ProductsGrid";
 
 const s = Agbalumo({
   subsets: ["latin"],
@@ -32,15 +30,7 @@ export default function Home() {
         </p>
       </div>
 
-      <p className="text-[1.2rem]"> 7 product </p>
-      <Divider padding="pt-8" />
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {" "}
-        {products.map((product) => (
-          <ProductCard key={product.id} {...product} />
-        ))}
-      </div>
+      <ProductsGrid />
     </div>
   );
 }

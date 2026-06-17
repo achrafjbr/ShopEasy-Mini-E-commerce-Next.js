@@ -51,7 +51,7 @@ export default async function ProductDetails({
             <div className="flex py-6 items-center gap-5 text-gray-400">
               <Tag size={15} />
               <p style={fontStyle({ font: Font.SANS_SERIF, fontSize: "12px" })}>
-                {product?.category.toUpperCase()}
+                {product!.category.toUpperCase()}
               </p>
             </div>
 
@@ -59,7 +59,7 @@ export default async function ProductDetails({
               className="sm:text-2xl lg:text-3xl"
               style={fontStyle({ font: Font.SANS_SERIF })}
             >
-              {product?.name}
+              {product!.name}
             </p>
 
             <Divider padding="pt-5" />
@@ -68,13 +68,13 @@ export default async function ProductDetails({
               className="sm:text-2xl lg:text-3xl text-[#c9a96e]"
               style={fontStyle({ font: Font.SERIF })}
             >
-              {product?.price + " DH"}
+              {product!.price + " DH"}
             </p>
           </div>
 
           <div className="">
             <p className="text-[0.9rem] lg:text-[1rem] md:text-[0.9rem]">
-              {product?.description}
+              {product!.description}
             </p>
 
             <Divider padding="pt-7" />

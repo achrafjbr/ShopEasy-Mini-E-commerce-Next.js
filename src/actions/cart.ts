@@ -5,7 +5,7 @@ import { products, shoppingCart } from "../lib/data/product";
 import { Product, ProductState } from "../lib/types/product";
 
 export const addToPanier = async (
-  prevState: unknown,
+  prevState: ProductState,
   product: Product,
 ): Promise<ProductState> => {
   console.log("Products", product);
@@ -13,6 +13,8 @@ export const addToPanier = async (
   return { isAdded: true };
   //revalidatePath("/cart");
 };
+
+export const getProducts = async () => products;
 
 export const productNumber = async () => shoppingCart.length;
 

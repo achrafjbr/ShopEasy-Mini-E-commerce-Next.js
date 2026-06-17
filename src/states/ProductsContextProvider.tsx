@@ -1,34 +1,49 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ProductContext } from "./context";
-import { Product } from "../lib/types/product";
+import { Product, ProductState } from "../lib/types/product";
 import { shoppingCart } from "../lib/data/product";
+import { products as productList } from "../lib/data/product";
+import { getProducts } from "../actions/cart";
 
 function ProductsContextProvider({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [products, setProducts] = useState<Product[]>();
-  const [productNumber, setProductNumber] = useState<number>(0);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [isAdded, setIsAdded] = useState(false);
+  const [pending, setIsPending] = useState(false);
 
-  const addProductHandler = (product: Product) => {
+  const addProductHandler = (product: Product): void => {
+    setIsPending(true);
     shoppingCart.push(product);
-    setProducts([...products!, product]);
-    setProductNumber(products!.length);
+    setProducts([...products, product]);
+    setIsAdded(true);
   };
 
   const deleteProductHandler = (id: number) => {
     setProducts(products?.filter((product) => product.id != id));
-    setProductNumber(products!.length);
   };
+
+  const getProductHandler = async () => await getProducts();
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsPending(false);
+    }, 1000);
+  });
 
   return (
     <ProductContext.Provider
       value={{
+        getProducts: getProductHandler,
         addProduct: addProductHandler,
-        productCartCount: productNumber,
         deleteProduct: deleteProductHandler,
+        productCartCount: products.length,
+        isAdded: isAdded,
+        pending: pending,
+        products: products,
       }}
     >
       {children}

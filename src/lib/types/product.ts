@@ -12,11 +12,15 @@ export type Product = {
 };
 
 export type ProductState = {
-  isAdded: boolean;
+  isAdded: boolean | false;
 };
 
 export type ProductContextType = {
-  productCartCount: number;
+  getProducts: () => Promise<Product[]>;
   addProduct: (product: Product) => void;
   deleteProduct: (id: number) => void;
+  products: Product[];
+  productCartCount: number | 0;
+  isAdded: boolean;
+  pending: boolean;
 };

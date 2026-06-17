@@ -6,7 +6,7 @@ export function Footer() {
       className="border-t border-border mt-24"
       style={{ background: "var(--card)" }}
     >
-      <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2">
           <span
             style={{
