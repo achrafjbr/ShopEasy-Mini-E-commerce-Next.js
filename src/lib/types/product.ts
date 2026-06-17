@@ -19,6 +19,7 @@ export type ProductContextType = {
   getProducts: () => Promise<Product[]>;
   addProduct: (product: Product) => void;
   deleteProduct: (id: number) => void;
+  totalArticles: () => number;
   products: Product[];
   productCartCount: number | 0;
   isAdded: boolean;

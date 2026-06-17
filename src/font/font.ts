@@ -1,7 +1,7 @@
 import { Style } from "../lib/types/style";
 
 export const fontStyle = ({
-  letterSpacing = "0.18rem",
+  letterSpacing = "0.15rem",
   color,
   font,
   fontSize,

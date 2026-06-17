@@ -26,6 +26,14 @@ function ProductsContextProvider({
     setProducts(products?.filter((product) => product.id != id));
   };
 
+  const totalProductsHandler = (): number => {
+    let sum = 0;
+    for (const product of products) {
+      sum += product.price;
+    }
+    return sum;
+  };
+
   const getProductHandler = async () => await getProducts();
 
   useEffect(() => {
@@ -44,6 +52,7 @@ function ProductsContextProvider({
         isAdded: isAdded,
         pending: pending,
         products: products,
+        totalArticles: totalProductsHandler,
       }}
     >
       {children}
