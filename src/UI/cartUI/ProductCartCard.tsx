@@ -6,6 +6,8 @@ import TrashCartProduct from "./TrashCartProduct";
 import { fontStyle } from "@/src/font/font";
 import { Font } from "@/src/lib/types/font";
 import Divider from "../Divider";
+import QuantityButton from "./QuantityButton";
+import { Quantity } from "@/src/lib/types/product";
 
 export default function ProductCartCard() {
   const productConsumer = useContext(ProductContext);
@@ -29,13 +31,27 @@ export default function ProductCartCard() {
                 />
                 <div className="flex flex-col justify-between">
                   <p className="font-semibold">{product.item.name}</p>
-                  <p>{product.count}</p>
+                  <div className="flex gap-x-3">
+                    <QuantityButton
+                      quantityType={Quantity.DECREMENT}
+                      onClick={() =>
+                        productConsumer!.decrementProduct(product.item.id)
+                      }
+                    />
+                    <p>{product.count}</p>
+                    <QuantityButton
+                      quantityType={Quantity.INCREMENT}
+                      onClick={() =>
+                        productConsumer!.incrementProduct(product.item.id)
+                      }
+                    />
+                  </div>
                 </div>
               </div>
 
               <div className="flex flex-col justify-between items-end">
                 <TrashCartProduct id={product.item.id} />
-                <p className="text-[#c9a96e]">{`${product.item.price} DH`}</p>
+                <p className="text-[#c9a96e]">{`${product.item.price * product.count} DH`}</p>
               </div>
             </div>
           </div>
@@ -60,13 +76,13 @@ export default function ProductCartCard() {
               className="font-light"
               style={fontStyle({ font: Font.SERIF, fontSize: "12px" })}
             >
-              {`${product.item.name} X ${product.count}`}
+              {`${product.item.name} x ${product.count}`}
             </p>
             <p
               className="font-extralight"
               style={fontStyle({ font: Font.SERIF, fontSize: "12px" })}
             >
-              {`${product.item.price} DH`}
+              {`${product.item.price * product.count} DH`}
             </p>
           </div>
         ))}

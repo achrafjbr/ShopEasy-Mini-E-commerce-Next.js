@@ -57,14 +57,24 @@ function ProductsContextProvider({
   };
 
   const incrementProductNumber = (id: number) => {
-    const product = products.find((p) => p.item.id === id);
-    setProducts([...products, { ...product!, count: product!.count + 1 }]);
+    const updateProducts = products.map((product) => {
+      if (product.item.id == id) {
+        return { ...product!, count: product!.count + 1 };
+      }
+      return product;
+    });
+    setProducts(updateProducts);
   };
   const decrementProductNumber = (id: number) => {
-    const product = products.find((p) => p.item.id === id);
-    if (product!.count > 0) {
-      setProducts([...products, { ...product!, count: product!.count - 1 }]);
-    }
+    const updateProducts = products.map((product) => {
+      if (product.item.id == id) {
+        if (product!.count > 1) {
+          return { ...product!, count: product!.count - 1 };
+        }
+      }
+      return product;
+    });
+    setProducts(updateProducts);
   };
 
   return (

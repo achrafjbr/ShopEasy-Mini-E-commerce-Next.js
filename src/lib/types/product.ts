@@ -28,3 +28,8 @@ export type ProductContextType = {
   isAdded: boolean;
   pending: boolean;
 };
+
+export enum Quantity {
+  INCREMENT = "increment",
+  DECREMENT = "decrement",
+}

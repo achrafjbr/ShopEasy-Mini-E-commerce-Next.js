@@ -11,7 +11,7 @@ export default function ProductCartList() {
   return (
     <div>
       <p className="text-[0.8rem] text-gray-400 tracking-widest">
-        {`${productConsumer!.products.length}`} ARTICLES
+        {`${productConsumer!.productCartCount}`} ARTICLES
       </p>
       <p
         className="lg:text-3xl text-[1rem]"
