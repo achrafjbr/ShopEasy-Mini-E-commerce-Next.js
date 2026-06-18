@@ -87,8 +87,10 @@ export const products: Product[] = [
   },
 ];
 
-export const shoppingCart: Product[] = [];
-
-export function getProductBySlug(slug: string): Product | undefined {
-  return products.find((p) => p.slug === slug);
+export interface Cart<T, S> {
+  item: T;
+  count: S;
 }
+export const shoppingCart: Cart<Product, number>[] = [];
+
+export const shoppingCartV: Cart<Product, number>[] = [];

@@ -1,3 +1,5 @@
+import { Cart } from "../data/product";
+
 export type Product = {
   id: number;
   slug: string;
@@ -16,11 +18,12 @@ export type ProductState = {
 };
 
 export type ProductContextType = {
-  getProducts: () => Promise<Product[]>;
   addProduct: (product: Product) => void;
   deleteProduct: (id: number) => void;
   totalArticles: () => number;
-  products: Product[];
+  incrementProduct: (id: number) => void;
+  decrementProduct: (id: number) => void;
+  products: Cart<Product, number>[];
   productCartCount: number | 0;
   isAdded: boolean;
   pending: boolean;
